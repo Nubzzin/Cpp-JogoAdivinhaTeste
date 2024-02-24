@@ -1,12 +1,9 @@
 #include <iostream>
 
-void exibirMenuInicial() {
-    std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
-}
-
 int selecaoDificuldade() {
-    char dificuldade;
+    char dificuldade{};
     int vidas{};
+    std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
     std::cout << "Qual dificuldade: Dificil(D), Medio(M), Facil(F)\nDigite a letra que deseja em Capslock...\n->>";
     std::cin >> dificuldade;
 
@@ -31,9 +28,9 @@ int selecaoDificuldade() {
 }
 
 void iniciarJogo(int vidasJogador) {
-    srand(time(0));
+    srand((int)time(0));
     int numeroAleatorio = rand() % 100;
-    int numeroJogador;
+    int numeroJogador{};
 
     //std::cout << numeroAleatorio << "\n";
 
@@ -51,11 +48,7 @@ void iniciarJogo(int vidasJogador) {
             std::cout << "*O numero secreto e maior que seu chute*\n\n";
             vidasJogador--;
         }
-        else if (numeroJogador == NULL)
-        {
-            std::cout << "NUMERO INVALIDO\n\n";
-        }
-        else
+        else if (numeroJogador == numeroAleatorio)
         {
             std::cout << "VOCE GANHOU!!!!!!!!!!!\n\n";
             break;
@@ -66,12 +59,14 @@ void iniciarJogo(int vidasJogador) {
 
 int main()
 {
-    exibirMenuInicial();
     iniciarJogo(selecaoDificuldade());
 
+    char continuar{};
     std::cout << "Continuar? (S/n)\n";
+    std::cin >> continuar;
 
-    if (std::cin.get() == 'S') {
+    if (continuar == 'S') {
+        system("cls");
         main();
     }
 
