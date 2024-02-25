@@ -1,10 +1,10 @@
 #include <iostream>
 
-int selecaoDificuldade() {
+static int selecaoDificuldade() {
     char dificuldade{};
     int vidas{};
     std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
-    std::cout << "Qual dificuldade: Dificil(D), Medio(M), Facil(F)\nDigite a letra que deseja em Capslock...\n->>";
+    std::cout << "Qual dificuldade: Dificil(D), Medio(M), Facil(F)\nDigite a letra que deseja em Capslock...\n->";
     std::cin >> dificuldade;
 
     switch (dificuldade)
@@ -19,7 +19,7 @@ int selecaoDificuldade() {
         vidas = 10;
         break;
     default:
-        selecaoDificuldade();
+        vidas = 1;
         break;
     }
     std::cout << "Voce tem: " << vidas << " Chances\n";
@@ -27,28 +27,28 @@ int selecaoDificuldade() {
     return vidas;
 }
 
-void iniciarJogo(int vidasJogador) {
+static void iniciarJogo(int vidasJogador) {
     srand((int)time(0));
-    int numeroAleatorio = rand() % 100;
+    const int NUMEROALEATORIO = rand() % 100;
     int numeroJogador{};
 
-    //std::cout << numeroAleatorio << "\n";
+    //std::cout << NUMEROALEATORIO << "\n";
 
     while (vidasJogador != 0) {
         std::cout << "Escolha um numero de 0 a 100...\n->";
         std::cin >> numeroJogador;
 
-        if (numeroJogador > numeroAleatorio)
+        if (numeroJogador > NUMEROALEATORIO)
         {
             std::cout << "*O numero secreto e menor que seu chute*\n\n";
             vidasJogador--;
         }
-        else if (numeroJogador < numeroAleatorio)
+        else if (numeroJogador < NUMEROALEATORIO)
         {
             std::cout << "*O numero secreto e maior que seu chute*\n\n";
             vidasJogador--;
         }
-        else if (numeroJogador == numeroAleatorio)
+        else if (numeroJogador == NUMEROALEATORIO)
         {
             std::cout << "VOCE GANHOU!!!!!!!!!!!\n\n";
             break;
