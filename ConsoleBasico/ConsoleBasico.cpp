@@ -1,7 +1,7 @@
 #include <iostream>
 
 static int selecaoDificuldade() {
-    char dificuldade{};
+    int dificuldade{};
     int vidas{};
     std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
     std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\nDigite a letra que deseja em Capslock...\n->";
