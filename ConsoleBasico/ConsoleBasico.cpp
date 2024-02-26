@@ -4,18 +4,18 @@ static int selecaoDificuldade() {
     char dificuldade{};
     int vidas{};
     std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
-    std::cout << "Qual dificuldade: Dificil(D), Medio(M), Facil(F)\nDigite a letra que deseja em Capslock...\n->";
+    std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\nDigite a letra que deseja em Capslock...\n->";
     std::cin >> dificuldade;
 
     switch (dificuldade)
     {
-    case 'D':
+    case 3:
         vidas = 3;
         break;
-    case 'M':
+    case 2:
         vidas = 6;
         break;
-    case 'F':
+    case 1:
         vidas = 10;
         break;
     default:
