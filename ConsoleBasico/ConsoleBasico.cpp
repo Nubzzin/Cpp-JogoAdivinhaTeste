@@ -3,25 +3,34 @@
 static int selecaoDificuldade() {
     int dificuldade{};
     int vidas{};
+    bool selecao{false};
     std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
-    std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\nDigite a letra que deseja em Capslock...\n->";
-    std::cin >> dificuldade;
+    std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\nDigite a letra que deseja em Capslock...\n";
 
-    switch (dificuldade)
-    {
-    case 3:
-        vidas = 3;
-        break;
-    case 2:
-        vidas = 6;
-        break;
-    case 1:
-        vidas = 10;
-        break;
-    default:
-        vidas = 1;
-        break;
+    while (!selecao) {
+        std::cout << "->";
+        std::cin >> dificuldade;
+        switch (dificuldade)
+        {
+        case 3:
+            vidas = 3;
+            selecao = true;
+            break;
+        case 2:
+            vidas = 6;
+            selecao = true;
+            break;
+        case 1:
+            vidas = 10;
+            selecao = true;
+            break;
+        default:
+            std::cout << "*Numero invalido!*\n";
+            selecao = false;
+            break;
+        }
     }
+    
     std::cout << "Voce tem: " << vidas << " Chances\n";
 
     return vidas;
