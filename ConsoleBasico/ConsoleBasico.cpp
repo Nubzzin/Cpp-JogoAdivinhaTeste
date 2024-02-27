@@ -56,6 +56,13 @@ static void iniciarJogo(int vidasJogador) {
         std::cout << "Escolha um numero de 0 a 100...\n->";
         std::cin >> numeroJogador;
 
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "*Digite um numero valido!*\n";
+            continue;
+        }
+
         if (numeroJogador > NUMEROALEATORIO)
         {
             std::cout << "*O numero secreto e menor que seu chute*\n\n";
