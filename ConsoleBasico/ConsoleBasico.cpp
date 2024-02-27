@@ -5,11 +5,19 @@ static int selecaoDificuldade() {
     int vidas{};
     bool selecao{false};
     std::cout << "**********************\n\nMenu Inicial Jogo adivinha\n\n**********************\n\n";
-    std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\nSe digitar uma letra o programa quebra...\n";
+    std::cout << "Qual dificuldade: Dificil(3), Medio(2), Facil(1)\n";
 
     while (!selecao) {
         std::cout << "->";
         std::cin >> dificuldade;
+
+        // Para o jogo não quebrar quando uma letra é entrada
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "*Digite um numero valido!*\n";
+            continue;
+        }
 
         switch (dificuldade)
         {
